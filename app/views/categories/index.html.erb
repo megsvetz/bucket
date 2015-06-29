@@ -39,7 +39,6 @@
                 <% @categories.each do |category|%>
                     <div class="col-lg-4 col-sm-6 text-center">
                         <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-                        <%= image_tag category.field_name.url, :size => "100x100" %>
                         <h3> <%= link_to("#{category.name.capitalize}", category_path(category.id)) %></h3>
                     </div>
                 <% end %>
