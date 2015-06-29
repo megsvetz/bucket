@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   # get ':id' => "users#show"
   get 'users/:id' => 'users#show', as: :user_show
 
-  resources :categories
-  resources :goals
-
+  resources :categories do 
+    resources :goals
+  end 
   devise_for :users, controllers: {registrations: "registrations"}
 
 end

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-inverse" style="height: 20%">
   <div class="navbar-header"> -->
   <!--   <row> -->
-    <%= image_tag "logo_inv.png", width: "25%", height:"auto", justify: "left", display: "inline-block" %>
+    <%= link_to image_tag("logo_inv.png", width: "25%"), root_path, justify: "left", display: "inline-block" %>
      <!--  <row> -->
         <ul class="nav navbar-nav navbar-right" style="display: inline-block">
           <% if user_signed_in? %>
