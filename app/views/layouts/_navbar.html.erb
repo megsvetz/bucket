@@ -16,7 +16,7 @@
               </ul>
             </li>
             <li><%= link_to('Bucket Lists', goals_path, class: "header-font") %></li> 
-            <li><%= link_to('Inspiration', user_index_path, :class => "header-font") %></li> 
+            <li><%= link_to('Inspiration', users_path, :class => "header-font") %></li> 
             <li class="header-font"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'header-font' %></li>
           <% else %>
             <li class="header-font"><%= link_to "Sign up", new_user_registration_path, :class => 'header-font' %></li>

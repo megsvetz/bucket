@@ -1,6 +1,8 @@
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:edit, :update, :show, :destroy]
   before_action :authenticate_user!
+  has_attached_file :goal_pic, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :goal_pic, :content_type => /\Aimage\/.*\Z/
   
   def index
     @user = current_user

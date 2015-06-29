@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:update, :edit, :destroy, :show]
   before_action :authenticate_user!
+  has_attached_file :cat_pic, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  validates_attachment_content_type :cat_pic, :content_type => /\Aimage\/.*\Z/
 
   def index
     @categories = Category.all
