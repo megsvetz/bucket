@@ -36,12 +36,12 @@
             <div class="col-lg-12">
                 <h2 class="page-header">My Bucket Lists</h2>
             </div>
-                <div class="col-lg-4 col-sm-6 text-center">
-                    <% @categories.each do |category|%>
+                <% @categories.each do |category|%>
+                    <div class="col-lg-4 col-sm-6 text-center">
                         <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
                         <h3> <%= link_to("#{category.name.capitalize}", category_path(category.id)) %></h3>
-                </div>
-                    <% end %>
+                    </div>
+                <% end %>
             </div>
         </div>
 
