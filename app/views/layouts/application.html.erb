@@ -9,10 +9,25 @@
 </head>
 <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= render 'layouts/navbar' %>
+    
+  <div class="container" style="background-color:white" >
+    <p class="notice" style="display:none"><%= notice %></p>
+    <p class="alert" style="display:none"><%= alert %></p>
 
 <%= yield %>
+
+     <div class="row">
+      <div class="col-sm-12">
+        <hr />
+          <footer class="text-center">
+            Copyright &copy; <%= Time.now.year %>
+            <br>
+          </footer>
+          <br />
+      </div>
+    </div>
+  </div>
 
 </body>
 </html>
