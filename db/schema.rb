@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629181151) do
+ActiveRecord::Schema.define(version: 20150629182309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,18 +19,26 @@ ActiveRecord::Schema.define(version: 20150629181151) do
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.boolean  "private",    default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "private",              default: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "cat_pic_file_name"
+    t.string   "cat_pic_content_type"
+    t.integer  "cat_pic_file_size"
+    t.datetime "cat_pic_updated_at"
   end
 
   create_table "goals", force: :cascade do |t|
     t.text     "title"
-    t.boolean  "completed",   default: false
+    t.boolean  "completed",             default: false
     t.integer  "category_id"
     t.integer  "user_id"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.string   "goal_pic_file_name"
+    t.string   "goal_pic_content_type"
+    t.integer  "goal_pic_file_size"
+    t.datetime "goal_pic_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +54,12 @@ ActiveRecord::Schema.define(version: 20150629181151) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "name"
+    t.text     "bio"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
