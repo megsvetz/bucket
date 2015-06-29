@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :bio %><br />
-    <%= f.text_field :bio, autofocus: true %>
+    <%= f.text_area :bio, autofocus: true %>
   </div>
 
   <div class="field">
@@ -30,8 +30,6 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
-
 
   <div class="actions">
     <%= f.submit "Sign up" %>

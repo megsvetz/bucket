@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :categories
-  resources :goals 
-
   root 'pages#home'
+
   get 'users/index'
+  resources :categories
+  resources :goals
+
+  devise_for :users, controllers: {registrations: "registrations"}
 end
