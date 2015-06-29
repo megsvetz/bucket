@@ -1,5 +1,6 @@
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:edit, :update, :show, :destroy]
+  before_action :authenticate_user!
   
   def index
     @user = current_user
