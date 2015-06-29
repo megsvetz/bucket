@@ -1,8 +1,10 @@
 <%= form_for @category, :html => { :multipart => true } do |f| %>
  
-   <h3>Bucket List Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;" %></h1>
+   <h1> Make a New Bucket List </h1>
+   <br />
+   <h4> Bucket List Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;" %></h4>
    <br>
-     Make list private? <%= f.check_box :private, {}, true, false %>
+   <h4> Make list private? <%= f.check_box :private, {}, true, false %> <h4>
    <br>
    <h4>Upload Photo: <%= f.file_field :cat_pic_file_name %></h4>
    <br>
