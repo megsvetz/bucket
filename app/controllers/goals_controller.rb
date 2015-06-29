@@ -1,10 +1,10 @@
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:edit, :update, :show, :destroy]
+  before_action :find_category
   before_action :authenticate_user!
  
   def index
-    @user = current_user
-    @goals = Goal.all
+    @goals = @category.goals
   end
 
   def show
@@ -56,5 +56,9 @@ private
     unless @goal
       render(text: "Goal not found.", status: :not_found)
     end
+  end
+
+  def find_category
+    @category = Category.find(params[:category_id])
   end
 end
