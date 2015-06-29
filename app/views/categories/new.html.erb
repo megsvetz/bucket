@@ -1,10 +1,10 @@
-<%= form_for @item, :url => items_path, :html => { :multipart => true } do |f| %>
+<%= form_for @category, :html => { :multipart => true } do |f| %>
  
    <h3>Bucket List Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;" %></h1>
    <br>
      Make list private? <%= f.check_box :private, {}, true, false %>
    <br>
-   <h4>Upload Photo: <%= f.file_field :item_pic %></h4>
+   <h4>Upload Photo: <%= f.file_field :cat_pic_file_name %></h4>
    <br>
    <%= f.hidden_field :user_id, value: @user.id %>
    <br>
