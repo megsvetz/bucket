@@ -65,15 +65,13 @@
 </div>
 
   <% @goals.each do |goal| %>
-    <% binding.pry %>
     <div class="col-sm-4">
       <% if goal.goal_pic.present? %>  
         <%= image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center") %>
           <br/>
       <% end %>
       <h2><%= link_to(goal.title, goal_path(goal)) %></h2>
-      <% x = @users.find_by(id: goal.user_id) %>
-      <h3><%= link_to x.name, user_path(goal.user_id) %></h3>
+      <h3><%= link_to goal.user.name, user_show_path(goal.user_id) %></h3>
 
     </div>
   <% end %>
