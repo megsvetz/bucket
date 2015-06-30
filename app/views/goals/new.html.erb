@@ -1,1 +1,22 @@
-current user can add a listing to the category they have clicked into
+<div class="text-center">
+  <h1><%= @category.name %></h1>
+  <h3>New Bucket List Item</h3>
+  <hr />
+  <row>
+    <a href="<% category_goals_path(@category.id) %>"class="btn backButton" style="float: left">Back to Listings</a>
+  </row><br /><br /><br /><br />
+
+  <%= form_for @goal, :url => category_goals_path, :html => { :multipart => true } do |f| %>
+  
+    <h3>Title: <%= f.text_field :title, class: "form-control", :placeholder => "Enter Name of Goal", :style => "width:100%;" %></h1>
+    <br>
+    <br>
+    <h4>Upload Photo: <%= f.file_field :goal_pic %></h4>
+    <br>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :category_id, value: @category.id %>
+    <br>
+    <%= f.submit "Create Goal", class: "btn myButton" %>
+    <br><br>
+  <% end %>
+</div>
