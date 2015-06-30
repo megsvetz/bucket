@@ -1,4 +1,22 @@
-shows all the goals for the category they clicked coming into it....
+<div class="text-center">
+  <h1><%= @category.name %></h1>
+  <% if @category.cat_pic.present? %>  
+    <%= image_tag(@category.cat_pic.url(:medium), :class => "img-circle img-responsive img-center") %>
+      <br/>
+  <% end %>
+  <% @goals.each do |goal| %>
+    <h2><%= link_to(goal.title) %></h2>
+    <h3><%= link_to goal.user.name, user_show_path(goal.user_id) %></h3>
 
-if current.user.id==goal.user_id then display an edit button
-"  add a new button 
+    <% if current_user.id == goal.user_id %>
+      <div class="text-center">
+        <br /><br />
+        <a href="<%= edit_category_goal_path(@category.id, goal.id) %>" class="btn btn-info"><span class = "glyphicon glyphicon-pencil"></span></a>
+        <a href="<%= category_goal_path(@category.id, goal.id) %>" class="btn btn-danger" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+      </div>
+    <% end %>
+  <% end %>
+  <% if current_user.id == @category.user_id %>
+    <a href="<%= new_category_goal_path %>" class="btn btn-success pull-right" style="display:inline-block">Create New Bucket List Item</a>
+  <% end %>
+</div>
