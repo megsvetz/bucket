@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   # get ':id' => "users#show"
   get 'users/:id' => 'users#show', as: :user_show
 
+	get '/auth/:twitter/callback', to: 'sessions#create'
+
   resources :categories do
-    resources :goals
+  resources :goals
   end
 
 end
