@@ -5,9 +5,7 @@
       <br/>
   <% end %>
   <% @goals.each do |goal| %>
-    <h2><%= link_to(goal.title) %></h2>
-    <h3><%= link_to goal.user.name, user_show_path(goal.user_id) %></h3>
-
+    <h2><%= link_to(goal.title, user_show_path(goal.user_id)) %></h2>
     <% if current_user.id == goal.user_id %>
       <div class="text-center">
         <br /><br />
@@ -17,6 +15,6 @@
     <% end %>
   <% end %>
   <% if current_user.id == @category.user_id %>
-    <a href="<%= new_category_goal_path %>" class="btn btn-success pull-right" style="display:inline-block">Create New Bucket List Item</a>
+    <a href="<%= new_category_goal_path %>" class="btn btn-success pull-right" style="display:inline-block">Add New Goal</a>
   <% end %>
 </div>
