@@ -7,7 +7,7 @@ gem 'devise'
 
 gem "paperclip", "~> 4.3"
 
-
+gem 'twitter'
 
 
 
