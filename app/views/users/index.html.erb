@@ -2,7 +2,7 @@
   <% @categories.each do |category|%>
       <div class="col-lg-4 col-sm-6 text-center">
           <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
-          <h3> <%= link_to("#{category.user.id}", user_show_path(category.user)) %></h3>
+          <h3> <%= link_to("#{category.user.name}", user_show_path(category.user)) %></h3>
       </div>
   <% end %>
 </div>
