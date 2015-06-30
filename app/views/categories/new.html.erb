@@ -1,7 +1,5 @@
 <%= form_for @category, :html => { :multipart => true } do |f| %>
-    
-   <% if current_user.id == category.user_id %>
-   <h1> Make a New Bucket List </h1>
+   <h1> Make a New Bucket</h1>
    <br />
    <h4> Bucket List Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;" %></h4>
    <br>
@@ -12,5 +10,5 @@
    <%= f.hidden_field :user_id, value: current_user.id %>
    <br>
    <%= f.submit("Create New List", class: "myButton") %>
-<br><br>
+   <br><br>
 <% end %>
