@@ -1,5 +1,7 @@
 <div class="text-center">
-  <h1><%= @category.name %></h1>
+  <h1><%= @category.name.capitalize %>
+  <a href="<%= edit_category_path(@category.id)%>" class="btn btn-info"><span class = "glyphicon glyphicon-pencil"></span></a>
+  </h1>
   <% if @category.cat_pic.present? %>  
     <%= image_tag(@category.cat_pic.url(:medium), :class => "img-circle img-responsive img-center") %>
       <br/>
