@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: "registrations"}
 
+  resources :users, only: [:show, :edit, :update]
+
   get 'users/index' => 'users#index', as: :users
 
   # get ':id' => "users#show"
@@ -11,5 +13,5 @@ Rails.application.routes.draw do
   resources :categories do
     resources :goals
   end
-  
+
 end
