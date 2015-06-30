@@ -1,5 +1,10 @@
 <div class="text-center">
   <% if current_user.id == @goal.user_id %>
+
+  <row>
+    <a href="<% category_goals_path(@category.id) %>"class="btn backButton" style="float: left">Back to Listings</a>
+  </row><br /><br /><br /><br />
+  
     <h2 class="text-center">Edit this Bucket Item<h2>
     <%= form_for @goal, url: category_goal_path, :html => { :multipart => true }  do |f| %>
       <h3>Title: <%= f.text_field :title, class: "form-control", :placeholder => "Enter Name of Goal", :style => "width:100%;" %></h1>
