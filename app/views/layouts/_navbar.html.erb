@@ -15,7 +15,7 @@
                 <li><%= link_to('Edit profile', edit_user_registration_path) %></li>
               </ul>
             </li>
-            <li><%= link_to('Bucket Lists', goals_path) %></li> 
+            <li><%= link_to('Bucket Lists', categories_path) %></li> 
             <li><%= link_to('Inspiration', users_path) %></li> 
             <li class="header-font"><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'header-font' %></li>
           <% else %>
