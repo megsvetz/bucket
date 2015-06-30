@@ -15,11 +15,10 @@ class GoalsController < ApplicationController
   end
 
   def create
-    @goal = Category.goal
-    @goal.create(goal_params)
+    @goal=Goal.create(goal_params)
     if @goal.save
       flash[:notice]="Goal was created succesfully!"
-      redirect_to(goals_path)
+      redirect_to(category_goals_path)
     else
       flash[:error]="Goal was not created."
       render :new
@@ -32,7 +31,7 @@ class GoalsController < ApplicationController
   def update
     if @goal.update(goal_params)
       flash[:notice]="Goal was updated successfully!"
-      redirect_to(goals_path)
+      redirect_to(category_goals_path)
     else
       flash[:error]="Goal was not updated."
       render :edit
@@ -43,7 +42,7 @@ class GoalsController < ApplicationController
     if @goal.destroy
       flash[:alert]="Goal was successfully deleted!"
     end
-    redirect_to(goals_path)
+    redirect_to(category_goals_path)
   end
 
 private

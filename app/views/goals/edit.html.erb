@@ -1,2 +1,19 @@
-belong to the currentuser
-they can edit specific goals in their categories
+<div class="text-center">
+  <% if current_user.id == @goal.user_id %>
+    <h2 class="text-center">Edit this Bucket Item<h2>
+    <%= form_for @goal, url: category_goal_path, :html => { :multipart => true }  do |f| %>
+      <h3>Title: <%= f.text_field :title, class: "form-control", :placeholder => "Enter Name of Goal", :style => "width:100%;" %></h1>
+      <br />
+      <br />
+      <h4>Upload Photo: <%= f.file_field :goal_pic %></h4>
+      <br />
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :category_id, value: @category.id %>
+      <br />
+      <%= f.submit "Create Goal", class: "btn myButton" %>
+      <br /><br />
+    <% end %>
+  <% else %>
+    <h2 class="text-center">Sorry the page you were looking for does not exist.</h2>
+  <% end %>
+</div>
