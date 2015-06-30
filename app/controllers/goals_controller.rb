@@ -11,12 +11,12 @@ class GoalsController < ApplicationController
   end
 
   def new
-    @user = current_user
     @goal = Goal.new
   end
 
   def create
-    @goal = Goal.create(goal_params)
+    @goal = Category.goal
+    @goal.create(goal_params)
     if @goal.save
       flash[:notice]="Goal was created succesfully!"
       redirect_to(goals_path)
