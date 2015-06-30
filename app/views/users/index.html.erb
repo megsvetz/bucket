@@ -1,12 +1,8 @@
 <div class="row">
-  <% @goals.each do |goal| %>
-    <div class="col-sm-4">
-      <% if goal.goal_pic.present? %>  
-        <%= image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center") %>
-          <br/>
-      <% end %>
-      <h2><%= link_to(goal.title, goal_path(goal)) %></h2>
-      <h3><%= link_to goal.user.name, user_show_path(goal.user_id) %></h3>
-    </div>
+  <% @categories.each do |category|%>
+      <div class="col-lg-4 col-sm-6 text-center">
+          <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt="">
+          <h3> <%= link_to("#{category.user.id}", user_show_path(category.user)) %></h3>
+      </div>
   <% end %>
 </div>
