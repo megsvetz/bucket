@@ -24,7 +24,7 @@
         <% @categories.each do |category|%>
         <div class="col-sm-6">
           <% if category.cat_pic.present? %>
-            <%= image_tag(@category.cat_pic.url(:medium), :class => "img-circle img-responsive img-center") %><br />
+            <%= image_tag(category.cat_pic.url(:medium), :class => "img-circle img-responsive img-center") %><br />
           <% else %>
             <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""><br />
           <% end %>

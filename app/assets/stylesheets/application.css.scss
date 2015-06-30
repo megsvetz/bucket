@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+input[type=checkbox] {
+  transform: scale(3.0);
+
+  -webkit-transform: scale(3.0);
+}
+
 h2, h3 {
   font-color: #668A99;
 }

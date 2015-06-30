@@ -1,6 +1,6 @@
 <%= form_for(@category) do |f| %>
     <% if current_user.id == @category.user_id %>
-      <h1> Edit "<%="#{@category.name.capitalize}"%>" </h1>
+      <h1> Edit "<%="#{@category.name}"%>" </h1>
       <br />
       <h4> Bucket List Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;" %></h4>
       <br>
