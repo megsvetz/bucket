@@ -3,12 +3,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {registrations: "registrations"}
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
 
-  get 'users/index' => 'users#index', as: :users
-
-  # get ':id' => "users#show"
-  get 'users/:id' => 'users#show', as: :user_show
+  # get 'users/index' => 'users#index', as: :users
 
   resources :categories do
     resources :goals
