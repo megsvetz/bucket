@@ -33,11 +33,11 @@
 
 <div class="row">
   <% @goals.each do |goal| %>
-    <div class="col-sm-4">
+    <div class="col-sm-4 text-center">
       <% if goal.goal_pic.present? %>  
-        <%= image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center") %>
-          <br/>
+        <%= image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail") %>
       <% end %>
+      <br/>
       <h2><%= link_to(goal.title, category_goals_path(goal.category_id)) %></h2>
       <h3><%= link_to goal.user.name, user_show_path(goal.user_id) %></h3>
     </div>

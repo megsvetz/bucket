@@ -1,10 +1,46 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+h2, h3 {
+  font-color: #668A99;
+}
+
+img {
+  vertical-align: middle;
+  horizontal-align: center;
+}
+.img-responsive,
+.thumbnail > img,
+.thumbnail a > img,
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.img-rounded {
+  border-radius: 6px;
+}
+.img-thumbnail {
+  display: inline-block;
+  max-width: 60%;
+  height: 175px;
+  padding: 4px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-transition: all .2s ease-in-out;
+       -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+}
+.img-circle {
+  border-radius: 50%;
+}
 
 .nav {
   padding-right: 5%;
-  padding-top: 1.7%;
+  padding-top: 0.9%;
   font-size: 1.7em;
 }
 
