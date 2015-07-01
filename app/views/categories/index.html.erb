@@ -7,7 +7,9 @@
     <% @categories.each do |category| %>
       <% if current_user.id == category.user_id %>
         <div class="col-lg-4 col-sm-6 text-center">
+          <% if category.cat_pic.present? %>
           <%= image_tag category.cat_pic.url, :class => "img-circle img-responsive img-center img-rounded img-thumbnail"%>
+          <% end %>
           <h3> <%= link_to("#{category.name}", category_goals_path(category.id)) %></h3>
         </div>
       <% end %>
