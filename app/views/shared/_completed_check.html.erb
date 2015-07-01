@@ -1,0 +1,5 @@
+<% if goal.completed %>
+  <label><input class="completed_check" data-goal-id="<%= goal.id %>" checked="<%= goal.completed %>" type="checkbox">&nbsp;&nbsp;
+<% else %>
+  <label><input class="completed_check" data-goal-id="<%= goal.id %>" type="checkbox">&nbsp;&nbsp;
+<% end %>

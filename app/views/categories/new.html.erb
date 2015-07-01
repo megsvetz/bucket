@@ -1,7 +1,7 @@
 <%= form_for @category, :html => { :multipart => true } do |f| %>
    <h1> Make a New Bucket</h1>
    <br />
-   <h4> Bucket Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;" %></h4>
+   <h4> Bucket Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;", :required => true %></h4>
    <br>
    <h4> Make list private? <%= f.check_box :private, {}, true, false %> <h4>
    <br>

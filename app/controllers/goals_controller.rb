@@ -48,6 +48,8 @@ class GoalsController < ApplicationController
 
   def completed
     goal = Goal.find(params[:goal_id])
+    # TODO: commented out until facebook gem is working
+    # client.update(params[:twitter_body]) if params[:post_to_twitter]
     if goal.update(completed: params[:checked])
       render(nothing: true)
     else

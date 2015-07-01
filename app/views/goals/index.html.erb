@@ -14,8 +14,7 @@
   <% @goals.each do |goal| %>
     <p style="font-size:2em">  
     <% if current_user.id == goal.user_id %>
-      <% goal_id = goal.id %>
-      <label><input class="completed_check" data-goal-id="<%= goal.id %>" checked="<%= goal.completed %>" type="checkbox">&nbsp;&nbsp;
+      <%= render(partial: 'shared/completed_check', locals: {goal: goal}) %>
     <% end %>
     <%= link_to(goal.title, category_goal_path(@category.id, goal.id)) %>
     <% if current_user.id == goal.user_id %>
