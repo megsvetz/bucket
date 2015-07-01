@@ -6,6 +6,6 @@ class Goal < ActiveRecord::Base
   
 
   def self.top_six
-    Goal.last(6)
+    Goal.last(6).reverse
   end
 end

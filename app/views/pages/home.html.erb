@@ -30,10 +30,11 @@
 
 <hr><br />
 <% end %>
+<br /><br />
 
 <div class="row">
   <% @goals.each do |goal| %>
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-4 text-center inline-block home-container">
       <% if goal.goal_pic.present? %>  
         <%= image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail") %>
       <% end %>
