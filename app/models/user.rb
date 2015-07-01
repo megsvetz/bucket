@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
-    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    user = User.where(:provider => auth[:provider], :uid => auth[:uid].first)
     if user
       return user
     else
@@ -20,11 +20,11 @@ class User < ActiveRecord::Base
         return registered_user
       else
         user = User.create(
-        	name:auth.extra.raw_info.name,
-		      provider:auth.provider,
-          uid:auth.uid,
-          email:auth.uid+"@twitter.com",
-          password:Devise.friendly_token[0,20]
+        	:username => auth[:username],
+		      :provider => auth[:provider],
+          :uid => auth[:uid],
+          :email => auth[:uid]+"@twitter.com",
+          :password => Devise.friendly_token[0,20]
           )
       end
     end
