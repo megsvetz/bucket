@@ -1,19 +1,22 @@
-<%= form_for(@category) do |f| %>
+<a href="previous.html" onClick="history.back();return false;" class="btn btn-default" style="float:left">Back to Buckets</a>
+  <br /><br /><br /><br />
+
+<div class="text-center">
+  <%= form_for(@category) do |f| %>
     <% if current_user.id == @category.user_id %>
-      <h1> Edit "<%="#{@category.name}"%>" </h1>
+      <h1> Edit </h1><hr />
+        <h2>"<%="#{@category.name}"%>"</h2>
       <br />
       <h4> Bucket Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;", :required => true%></h4>
       <br>
-      <h4> Make list private? <%= f.check_box :private, {}, true, false %> <h4>
+      <h4> Make list private? &nbsp;<%= f.check_box :private, {}, true, false %> <h4>
       <br>
-      <h4>Upload Photo: <%= f.file_field :cat_pic %></h4>
+      <h4>Upload Photo:</h4><%= f.file_field :cat_pic, :style => "display:inline-block" %>
       <br>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <br>
       <%= f.submit("Edit List", class: "btn btn-info") %>
       <br><br>
     <% end %>
- <% end %>
-
-<a href="<%= categories_path %>" class="btn btn-default pull-left" style="display:inline-block">Back to Buckets</a>
+  <% end %>
 </div>
