@@ -11,7 +11,7 @@
     <h3>Title: <%= f.text_field :title, class: "form-control", :placeholder => "Enter Name of Goal", :style => "width:100%;" %></h1>
     <br>
     <br>
-    <h4>Upload Photo: <%= f.file_field :goal_pic %></h4>
+    <h4>Upload Photo: <%= f.file_field :goal_pic, :style => "display:inline-block" %></h4>
     <br>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :category_id, value: @category.id %>
