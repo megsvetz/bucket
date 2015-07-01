@@ -1,8 +1,7 @@
 <div class="text-center">
   <div class="row">
     <div class="col-sm-12">
-
-      <h1><%= @user.name %></h1>
+      <h1><%= @user.username %></h1>
       <% if @user.avatar.present? %>
         <%= image_tag(@user.avatar.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail") %><br/>
       <% end %>

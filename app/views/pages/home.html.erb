@@ -40,7 +40,9 @@
       <% end %>
       <br/>
       <h2><%= link_to(goal.title, category_goals_path(goal.category_id)) %></h2>
-      <h3><%= link_to(goal.category.user.name, user_path(goal.user_id)) %></h3>
+      <% if user? %>
+      <h3><%= link_to(goal.category.user.username, user_path(goal.user_id)) %></h3>
+      <% end%>
     </div>
   <% end %>
 </div>
