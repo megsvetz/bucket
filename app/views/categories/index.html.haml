@@ -1,25 +1,15 @@
 .container
   .row
     .col-lg-12.text-center
-<<<<<<< HEAD
-      %h2.page-header
-=======
       %h1.page-header
->>>>>>> cf706d81ab76557087e964d8c887358a5e2a5bb9
         My Buckets&nbsp;&nbsp;
         %a.btn.btn-info{:href => new_category_path}
           %span.glyphicon.glyphicon-plus
     - @categories.each do |category|
       - if current_user.id == category.user_id
         .col-lg-4.col-sm-6.text-center
-<<<<<<< HEAD
-          = image_tag category.cat_pic.url, :class => "img-circle img-responsive img-center img-rounded img-thumbnail"
-          %h3
-            = link_to("#{category.name}", category_goals_path(category.id))
-=======
           - if category.cat_pic.present?
             = image_tag category.cat_pic.url, :class => "img-circle img-responsive img-center img-rounded img-thumbnail"
           %h3
             = link_to("#{category.name}", category_goals_path(category.id))
 = will_paginate @posts
->>>>>>> cf706d81ab76557087e964d8c887358a5e2a5bb9
