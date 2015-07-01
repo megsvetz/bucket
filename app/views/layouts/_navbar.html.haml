@@ -1,8 +1,9 @@
-%nav.navbar.navbar-collapse.navbar-inverse{:style => "height: 20%"}
+%nav.navbar.navbar-inverse{:style => "height: 20%"}
   .navbar-header
     \-->
-    
-    \#{link_to image_tag("logo_inv.png", width: "18%"), root_path, justify: "left", display: "inline-block"}
+    / <row>
+    = link_to image_tag("logo_inv.png", width: "18%"), root_path, justify: "left", display: "inline-block"
+    / <row>
     %ul.nav.navbar-nav.navbar-right{:style => "display: inline-block"}
       - if user_signed_in?
         %li.dropdown
@@ -18,4 +19,6 @@
       - else
         %li.header-font= link_to "Sign up", new_user_registration_path, :class => 'header-font'
         %li.header-font= link_to "Login", new_user_session_path, :class => 'header-font'
-        %li'
+        %li     / </row>
+    / </row>
+    

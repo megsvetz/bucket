@@ -1,4 +1,4 @@
-%a.btn.btn-default{:href => "previous.html", :onClick => "history.back();return false;", :style => "float:left"} Back to Bucket
+%a.btn.backButton{:href => "previous.html", :onClick => "history.back();return false;", :style => "float:left"} Back to Bucket
 %br/
 %br/
 %br/
@@ -19,6 +19,6 @@
             %br
               = f.hidden_field :user_id, value: current_user.id
               %br
-                = f.submit("Create Bucket", class: "btn btn-info")
+                = f.submit("Create Bucket", class: "btn myButton")
                 %br
                   %br

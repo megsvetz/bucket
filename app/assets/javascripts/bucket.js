@@ -1,7 +1,4 @@
 $(document).ready(function(){
-  // $('.private-check').click(function(){
-  //   if($(this).prop)
-  // });
 
   $('#completed_goal_modal').on('hidden.bs.modal', function () {
     removeTwitterError();
