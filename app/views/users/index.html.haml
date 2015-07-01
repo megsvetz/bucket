@@ -1,0 +1,31 @@
+.container
+  .row
+    .col-lg-11
+      %h1.text-center= image_tag "logo_with_slogan.png", width: "80%", height:"auto", justify: "center" 
+      %br
+.row
+  .container
+    .row
+      .col-lg-12.text-center
+        - @categories.each do |category|
+          - if category.private == false
+            .col-lg-4.text-center
+              - if category.cat_pic.present?
+                = image_tag(category.cat_pic.url(:medium), :class => "img-circle img-responsive img-center img-thumbnail img-rounded")
+                %br/
+              - else
+                %img.img-circle.img-responsive.img-center{:alt => "", :src => "http://placehold.it/200x200"}
+                  %br/
+              %h2
+                = link_to("#{category.name}", category_goals_path(category.id))
+                - category.goals.each do |goal|
+                  - if goal.completed == true
+                    %h4
+                      %span.glyphicon.glyphicon-ok
+                      = goal.title
+                  - else
+                    %h4= goal.title
+          / col-sm-4
+        / categories
+      / row
+  = will_paginate @categories

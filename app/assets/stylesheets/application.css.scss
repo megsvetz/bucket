@@ -1,6 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.structure {
+  height: 400px;
+  margin-left: 300px;
+  margin-right: 300px;
+  background-color: #e1f3ef;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .highlight-red {
   border: 1px solid red;
 

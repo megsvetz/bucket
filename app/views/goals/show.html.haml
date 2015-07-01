@@ -1,0 +1,36 @@
+.text-center
+  .row
+    .col-lg-12
+      %h1
+        = @category.name
+        %hr/
+        - if @goal.goal_pic.present?
+          = image_tag(@goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-thumbnail img-rounded")
+          %br/
+        - else
+          %img.img-circle.img-responsive.img-center{:alt => "", :src => "http://placehold.it/200x200"}
+            %br/
+        %br/
+        - if current_user.id == @goal.user_id
+          %h4
+            = render(partial: 'shared/completed_check', locals: {goal: @goal})
+            = @goal.title
+        - elsif @goal.completed == true
+          %h4
+            %span.glyphicon.glyphicon-ok
+            = @goal.title
+        - else
+          %h4= @goal.title
+        - if current_user.id == @goal.user_id
+          \&nbsp;&nbsp;
+          %a.btn.btn-info{:href => edit_category_goal_path(@category.id, @goal.id)}
+            %span.glyphicon.glyphicon-pencil
+          %a.btn.btn-danger{"data-method" => "delete", :href => category_goal_path(@category, @goal)}
+            %span.glyphicon.glyphicon-trash
+        %br/
+        %br/
+        - if current_user.id == @goal.user_id
+          %a.btn.btn-success.pull-right{:href => new_category_goal_path, :style => "display:inline-block"} Add New Goal
+        %a.btn.btn-info.pull-left{:href => categories_path, :style => "display:inline-block"} Back to Buckets
+
+= render(partial: "shared/completed_goals_modal")

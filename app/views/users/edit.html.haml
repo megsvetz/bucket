@@ -1,0 +1,34 @@
+%row
+  = link_to "Back", :back, class: "backButton", style: "float:left"
+%br/
+%br/
+.text-center
+  %h1 Edit Profile
+  %hr/
+  %h2= @user.username.to_s.humanize
+  = form_for(@user, html: { method: :put }) do |f|
+    .field
+      = f.label :username
+      %br/
+      = f.text_field :username, autofocus: true
+    %br/
+    .field
+      = f.label :bio
+      %br/
+      = f.text_area :bio, autofocus: true
+    %br/
+    .field
+      = f.label :email
+      %br/
+      = f.email_field :email, autofocus: true
+    %br/
+    .field{:style => "display:inline-block"}
+      = f.label("Upload Photo")
+      = f.file_field :avatar
+    %br/
+    %br/
+    %br/
+    .actions
+      = f.submit "Update", class: "myButton"
+    %br/
+    
