@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   # get 'users/index' => 'users#index', as: :users
 
+	get '/auth/:twitter/callback', to: 'sessions#create'
+
   resources :categories do
-    resources :goals
+  resources :goals
   end
 
   post "/completed_goal" => "goals#completed"
