@@ -12,3 +12,5 @@
 !/log/.keep
 /tmp
 /config/twitter.yml
+/coverage
+Gemfile.lock
