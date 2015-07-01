@@ -9,6 +9,7 @@ gem "paperclip", "~> 4.3"
 
 gem 'twitter'
 gem 'omniauth'
+gem 'omniauth-twitter'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
