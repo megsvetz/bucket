@@ -1,4 +1,4 @@
-<a href= "<%= users_path %>" class="btn backButton" style="float: left">Back to Listings</a>
+<a href= "<%= users_path %>" class="btn btn-default" style="float: left">Back to Listings</a>
   <br /><br /><br /><br />
 <div class="text-center">
    <%= form_for @category, :html => { :multipart => true } do |f| %>
@@ -12,7 +12,7 @@
       <br>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <br>
-      <%= f.submit("Create Bucket", class: "myButton") %>
+      <%= f.submit("Create Bucket", class: "btn btn-info") %>
       <br><br>
    <% end %>
-</div>
+</div
