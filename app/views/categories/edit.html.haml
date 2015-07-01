@@ -1,0 +1,29 @@
+%a.btn.btn-default{:href => "previous.html", :onClick => "history.back();return false;", :style => "float:left"} Back to Buckets
+%br/
+%br/
+%br/
+%br/
+.text-center
+  = form_for(@category) do |f|
+    - if current_user.id == @category.user_id
+      %h1 Edit
+      %hr/
+      %h2
+        "#{"#{@category.name}"}"
+      %br/
+      %h4
+        Bucket List Name: #{f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;"}
+      %br
+        %h4
+          Make list private? &nbsp;#{f.check_box :private, {}}
+          %h4
+            %br
+              %h4 Upload Photo:
+              = f.file_field :cat_pic, :style => "display:inline-block"
+              %br
+                = f.hidden_field :user_id, value: current_user.id
+                %br
+                  = f.submit("Edit List", class: "btn btn-info")
+                  %br
+                    %br
+                    

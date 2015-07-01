@@ -1,0 +1,42 @@
+%header.business-header
+  .container
+    .row
+      .col-lg-11
+        %h1.text-center= image_tag "logo_with_slogan.png", width: "80%", height:"auto", justify: "center"
+.container
+  %hr
+    - if user_signed_in?
+      %h3
+        Welcome, #{current_user.username}!
+        = succeed "What's" do
+          %br/
+        on your Bucket today?
+    - else
+      .row
+        .col-sm-8
+          %h2 What is "Kick It"?
+          %br/
+          %p
+            Kick It is all about what you want to do before you
+            = succeed "." do
+              %em kick the bucket
+          %p Hop on in and create your different bucket lists, or feel free to get inspiration from others.
+          %p Either way, begin creating your bucket lists now...
+          %br/
+        .col-sm-4
+          %h2.text-center= link_to('SIGN UP NOW!', new_user_registration_path)
+          .text-center= image_tag "bucket.png", width: "45%", height:"auto"
+      %hr
+        %br/
+    %br/
+    %br/
+    .row
+      - @goals.each do |goal|
+        - if goal.category.private == false
+          .col-sm-4.text-center.inline-block.home-container
+            - if goal.goal_pic.present?
+              = image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail")
+            %br/
+            %h2= link_to(goal.title, category_goals_path(goal.category_id))
+            %h3= link_to(goal.category.user.username, user_path(goal.user_id))
+            

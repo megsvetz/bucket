@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title Bucket
+    = stylesheet_link_tag    'application', media: 'all'
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
+    = javascript_include_tag 'application'
+    = javascript_include_tag 'bucket.js'
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+  %body
+    = render 'layouts/navbar'
+    .container{:style => "background-color:white"}
+      %p.notice{:style => "display:none"}= notice
+      %p.alert{:style => "display:none"}= alert
+      = yield
+      .row
+        .col-sm-12
+          %hr/
+          %footer.text-center
+            Copyright &copy; #{Time.now.year}
+            %br
+          %br/

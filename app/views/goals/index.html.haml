@@ -1,0 +1,33 @@
+.text-center
+  %br/
+  - if @category.cat_pic.present?
+    = image_tag(@category.cat_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail")
+    %br/
+  %h1= @category.name
+  - if current_user.id == @category.user_id
+    %div
+      %a.btn.btn-success{:href => new_category_goal_path, :s => "", :style => "display:inline-block"}
+        %span.glyphicon.glyphicon-plus
+      %a.btn.btn-info{:href => edit_category_path(@category.id)}
+        %span.glyphicon.glyphicon-pencil
+    / <a href="<haml:loud> categories_path(@category.id) </haml:loud>" class="btn btn-danger" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+  %hr/
+  - @goals.each do |goal|
+    %p{:style => "font-size:2em"}
+      - if current_user.id == goal.user_id
+        = render(partial: 'shared/completed_check', locals: {goal: goal})
+      - else
+        - if goal.completed == true
+          %h4
+            %span.glyphicon.glyphicon-ok
+      = link_to(goal.title, category_goal_path(@category.id, goal.id))
+      - if current_user.id == goal.user_id
+        \&nbsp;&nbsp;
+        %a.btn.btn-info{:href => edit_category_goal_path(@category.id, goal.id)}
+          %span.glyphicon.glyphicon-pencil
+        %a.btn.btn-danger{"data-method" => "delete", :href => category_goal_path(@category, goal)}
+          %span.glyphicon.glyphicon-trash
+  %br/
+  %br/
+  %a.btn.btn-info.pull-left{:href => root_path, :style => "display:inline-block"} Back to Buckets
+= render(partial: "shared/completed_goals_modal")

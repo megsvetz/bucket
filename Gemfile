@@ -35,7 +35,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 # Creates new pages once the page listsings hit 9
 gem 'will_paginate', '~> 3.0.6'
-
+# Convert to Haml
+gem "haml-rails", "~> 0.9"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

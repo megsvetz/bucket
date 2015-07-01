@@ -1,0 +1,23 @@
+.text-center
+  .row
+    .col-sm-12
+      %h1= @user.username
+      - if @user.avatar.present?
+        = image_tag(@user.avatar.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail")
+        %br/
+      - if @user.bio.present?
+        %h3= @user.bio
+        %br/
+      %br/
+      %hr/
+      .row
+        - @user.categories.each do |category|
+          .col-lg-4.col-sm-6.text-center
+            - if category.cat_pic.present?
+              = image_tag(category.cat_pic.url(:medium), :class => "img-circle img-responsive img-center img-thumbnail img-rounded")
+              %br/
+            - else
+              %img.img-circle.img-responsive.img-center{:alt => "", :src => "http://placehold.it/200x200"}
+                %br/
+            %h3
+              = link_to("#{category.name}", category_goals_path(category.user))
