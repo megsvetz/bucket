@@ -4,13 +4,8 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio %>
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true %>
   </div>
 
   <div class="field">
@@ -30,6 +25,12 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+
+  <div class="field">
+    <%= f.label :bio %><br />
+    <%= f.text_area :bio %>
+  </div>
+
 <br />
   <div class="field">
     <%= f.label "Upload Photo" %>
