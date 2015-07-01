@@ -6,7 +6,11 @@
   <% end %>
   <h1><%= @category.name %></h1>
     <% if current_user.id == @category.user_id %>
-      <a href="<%= edit_category_path(@category.id) %>" class="btn btn-info"><span class = "glyphicon glyphicon-pencil"></span></a>
+      <div>
+        <a href="<%= new_category_goal_path %>" class="btn btn-success" style="display:inline-block"s><span class = "glyphicon glyphicon-plus"></span></a>
+        <a href="<%= edit_category_path(@category.id) %>" class="btn btn-info"><span class = "glyphicon glyphicon-pencil"></span></a>
+      </div>
+
       <!-- <a href="<%= categories_path(@category.id) %>" class="btn btn-danger" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a> -->
     <% end %>
   
@@ -24,9 +28,6 @@
     </p></label>
     <% end %><br />
   <% end %><br />
-  <% if current_user.id == @category.user_id %>
-    <a href="<%= new_category_goal_path %>" class="btn btn-success pull-right" style="display:inline-block">Add New Goal</a>
-  <% end %>
   <a href="<%= root_path %>" class="btn btn-info pull-left" style="display:inline-block">Back to Buckets</a>
 </div>
 

@@ -16,7 +16,7 @@ Add google maps and drop a pin.
     <% end %><br />
   <% end %><br />
   <% if current_user.id == @category.user_id %>
-    <a href="<%= new_category_goal_path %>" class="btn btn-success pull-right" style="display:inline-block">Add New Goal</a>
+    <a href="<%= new_category_goal_path %>" style="display:inline-block" class="btn btn-success pull-right"><span class = "glyphicon glyphicon-plus"></span></a>
   <% end %>
   <a href="<%= root_path %>" class="btn btn-info pull-left" style="display:inline-block">Back to Buckets</a>
 </div>
