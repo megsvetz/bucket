@@ -1,4 +1,4 @@
-%a.btn.btn-default{:href => users_path, :style => "float: left"} Back to Listings
+%a.btn.btn-default{:href => "previous.html", :onClick => "history.back();return false;", :style => "float:left"} Back to Bucket
 %br/
 %br/
 %br/
@@ -22,4 +22,3 @@
                 = f.submit("Create Bucket", class: "btn btn-info")
                 %br
                   %br
-  
