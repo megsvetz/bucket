@@ -2,7 +2,7 @@ Maybe if time add a comment section here where people can dig deeper into a goal
 
 Add google maps and drop a pin.
 
-  <%= @goal.inspect %>
+  
     <p style="font-size:2em">  
     <% if current_user.id == goal.user_id %>
       <label><input type="checkbox" value= "true">&nbsp;&nbsp;
@@ -16,7 +16,24 @@ Add google maps and drop a pin.
     <% end %><br />
   <% end %><br />
   <% if current_user.id == @category.user_id %>
+
+
+
+
+<% if goal.category.private == false %>
+      <div class="col-sm-4 text-center inline-block home-container">
+        <% if goal.goal_pic.present? %>  
+          <%= image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail") %>
+        <% end %>
+        <br/>
+        <h2><%= link_to(goal.title, category_goals_path(goal.category_id)) %></h2>
+        <h3><%= link_to(goal.category.user.username, user_path(goal.user_id)) %></h3>
+      </div>
+      <% end %>
+  <% end %>
+
+  <% if current_user.id == @category.user_id %>
     <a href="<%= new_category_goal_path %>" class="btn btn-success pull-right" style="display:inline-block">Add New Goal</a>
   <% end %>
-  <a href="<%= root_path %>" class="btn btn-info pull-left" style="display:inline-block">Back to Buckets</a>
+    <a href="<%= root_path %>" class="btn btn-info pull-left" style="display:inline-block">Back to Buckets</a>
 </div>

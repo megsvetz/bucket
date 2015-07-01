@@ -12,7 +12,6 @@
   
   <hr />
   <% @goals.each do |goal| %>
-
     <p style="font-size:2em">  
     <% if current_user.id == goal.user_id %>
       <%= render(partial: 'shared/completed_check', locals: {goal: goal}) %>

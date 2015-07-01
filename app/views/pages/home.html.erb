@@ -34,13 +34,15 @@
 
 <div class="row">
   <% @goals.each do |goal| %>
-    <div class="col-sm-4 text-center inline-block home-container">
-      <% if goal.goal_pic.present? %>  
-        <%= image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail") %>
+    <% if goal.category.private == false %>
+      <div class="col-sm-4 text-center inline-block home-container">
+        <% if goal.goal_pic.present? %>  
+          <%= image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail") %>
+        <% end %>
+        <br/>
+        <h2><%= link_to(goal.title, category_goals_path(goal.category_id)) %></h2>
+        <h3><%= link_to(goal.category.user.username, user_path(goal.user_id)) %></h3>
+      </div>
       <% end %>
-      <br/>
-      <h2><%= link_to(goal.title, category_goals_path(goal.category_id)) %></h2>
-      <h3><%= link_to(goal.category.user.username, user_path(goal.user_id)) %></h3>
-    </div>
   <% end %>
 </div>
