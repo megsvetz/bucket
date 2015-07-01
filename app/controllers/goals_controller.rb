@@ -1,7 +1,8 @@
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:edit, :update, :show, :destroy]
-  before_action :find_category
-  before_action :authenticate_user!
+  before_action :find_category, except: :completed
+  before_action :authenticate_user! 
+  skip_before_action :verify_authenticity_token, only: :completed
  
   def index
     @goals = @category.goals
@@ -43,6 +44,15 @@ class GoalsController < ApplicationController
       flash[:alert]="Goal was successfully deleted!"
     end
     redirect_to(category_goals_path)
+  end
+
+  def completed
+    goal = Goal.find(params[:goal_id])
+    if goal.update(completed: params[:checked])
+      render(nothing: true)
+    else
+      render(json: {message: "Sorry it didn't work."}, status: 500)
+    end
   end
 
 private
