@@ -1,0 +1,13 @@
+.container
+  .row
+    .col-lg-12.text-center
+      %h2.page-header
+        My Buckets&nbsp;&nbsp;
+        %a.btn.btn-info{:href => new_category_path}
+          %span.glyphicon.glyphicon-plus
+    - @categories.each do |category|
+      - if current_user.id == category.user_id
+        .col-lg-4.col-sm-6.text-center
+          = image_tag category.cat_pic.url, :class => "img-circle img-responsive img-center img-rounded img-thumbnail"
+          %h3
+            = link_to("#{category.name}", category_goals_path(category.id))

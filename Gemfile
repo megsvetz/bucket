@@ -11,6 +11,8 @@ gem 'twitter'
 gem 'omniauth'
 gem 'omniauth-twitter'
 
+gem "haml-rails", "~> 0.9"
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
