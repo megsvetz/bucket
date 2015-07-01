@@ -1,22 +1,36 @@
-Maybe if time add a comment section here where people can dig deeper into a goal...
+<div class="text-center">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1><%= @category.name %></h2><hr />
 
-Add google maps and drop a pin.
+      <% if @goal.goal_pic.present? %>
+        <%= image_tag(@goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-thumbnail img-rounded") %><br />
+      <% else %>
+          <img class="img-circle img-responsive img-center" src="http://placehold.it/200x200" alt=""><br />
+      <% end %><br />
 
-  <%= @goal.inspect %>
-    <p style="font-size:2em">  
-    <% if current_user.id == goal.user_id %>
-      <label><input type="checkbox" value= "true">&nbsp;&nbsp;
-    <% end %>
-    <%= link_to(goal.title, category_goal_path(@category.id, goal.id)) %>
-    <% if current_user.id == goal.user_id %>
-    &nbsp;&nbsp;
-      <a href="<%= edit_category_goal_path(@category.id, goal.id) %>" class="btn btn-info"><span class = "glyphicon glyphicon-pencil"></span></a>
-      <a href="<%= category_goal_path(@category.id, goal.id) %>" class="btn btn-danger" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
-    </p></label>
-    <% end %><br />
-  <% end %><br />
-  <% if current_user.id == @category.user_id %>
-    <a href="<%= new_category_goal_path %>" style="display:inline-block" class="btn btn-success pull-right"><span class = "glyphicon glyphicon-plus"></span></a>
-  <% end %>
-  <a href="<%= root_path %>" class="btn btn-info pull-left" style="display:inline-block">Back to Buckets</a>
+      <% if current_user.id == @goal.user_id %>
+        <h4><%= render(partial: 'shared/completed_check', locals: {goal: @goal}) %>
+      <% elsif @goal.completed == true %>
+        <h4><span class = "glyphicon glyphicon-ok"></span>
+      <% else %>
+        <h4>     
+      <% end %>
+
+      <%= @goal.title%></h4>
+
+      <% if current_user.id == @goal.user_id %>
+        &nbsp;&nbsp;
+        <a href="<%= edit_category_goal_path(@category.id, @goal.id) %>" class="btn btn-info"><span class = "glyphicon glyphicon-pencil"></span></a>
+        <a href="<%= category_goal_path(@category, @goal) %>" class="btn btn-danger" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+      <% end %>
+
+      <br /><br />
+      <% if current_user.id == @goal.user_id %>
+        <a href="<%= new_category_goal_path %>" class="btn btn-success pull-right" style="display:inline-block">Add New Goal</a>
+      <% end %>
+
+      <a href="<%= root_path %>" class="btn btn-info pull-left" style="display:inline-block">Back to Buckets</a>
+    </div>
+  </div>
 </div>

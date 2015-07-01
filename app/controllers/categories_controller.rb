@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @categories = Category.all
+    @categories = Category.order(updated_at: :desc).paginate(:page => params[:page], :per_page => 9)
   end
 
   def show
