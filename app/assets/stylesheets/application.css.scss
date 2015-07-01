@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.highlight-red {
+  border: 1px solid red;
+
+}
+
 .home-container {
   height:375px;
 }
