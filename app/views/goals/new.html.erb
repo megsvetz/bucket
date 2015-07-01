@@ -1,9 +1,9 @@
 <div class="text-center">
   <h1><%= @category.name %></h1>
-  <h3>New Bucket List Item</h3>
+  <h3>Add a New Goal</h3>
   <hr />
   <row>
-    <a href="<% category_goals_path(@category.id) %>"class="btn backButton" style="float: left">Back to Listings</a>
+    <a href="<% category_goals_path(@category.id) %>"class="btn backButton" style="float: left">Back to Buckets</a>
   </row><br /><br /><br /><br />
 
   <%= form_for @goal, :url => category_goals_path, :html => { :multipart => true } do |f| %>

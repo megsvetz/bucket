@@ -4,7 +4,7 @@
   <div class="text-center">
     <%= form_for(@category) do |f| %>
       <% if current_user.id == @category.user_id %>
-        <h1> Edit "<%="#{@category.name}"%>"</h1><hr />
+        <h1> Edit Bucket</h1><hr />
         <h4> Bucket Name: <%= f.text_field :name, class: "form-control", :placeholder => "To do before 90", :style => "width:100%;", :required => true%></h4>
         <br>
         <h4> Make list private? &nbsp;<%= f.check_box :private, {}, true, false %> <h4>
