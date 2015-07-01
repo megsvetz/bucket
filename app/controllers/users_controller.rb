@@ -3,7 +3,8 @@ class UsersController < ApplicationController
 
 	def index
     @users = User.all
-		@categories = Category.order(created_at: :desc)
+		# @categories = Category.order(created_at: :desc)
+    @categories = Category.order(created_at: :desc).paginate(:page => params[:page], :per_page => 9)
   end
 
   def new
@@ -33,8 +34,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:username, :email, :bio, :avatar)
+		params.require(:user).permit(:username, :password, :password_confirmation, :email, :bio, :avatar)
 	end
-
 
 end
