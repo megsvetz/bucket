@@ -14,13 +14,14 @@
   <% @goals.each do |goal| %>
     <p style="font-size:2em">  
     <% if current_user.id == goal.user_id %>
-      <label><input type="checkbox" value= "true">&nbsp;&nbsp;
+      <% goal_id = goal.id %>
+      <label><input class="completed_check" data-goal-id="<%= goal.id %>" checked="<%= goal.completed %>" type="checkbox">&nbsp;&nbsp;
     <% end %>
     <%= link_to(goal.title, category_goal_path(@category.id, goal.id)) %>
     <% if current_user.id == goal.user_id %>
     &nbsp;&nbsp;
       <a href="<%= edit_category_goal_path(@category.id, goal.id) %>" class="btn btn-info"><span class = "glyphicon glyphicon-pencil"></span></a>
-      <a href="<%= category_goal_path(@category.id, goal.id) %>" class="btn btn-danger" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
+      <a href="<%= category_goal_path(@category, goal) %>" class="btn btn-danger" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
     </p></label>
     <% end %><br />
   <% end %><br />
@@ -29,3 +30,5 @@
   <% end %>
   <a href="<%= root_path %>" class="btn btn-info pull-left" style="display:inline-block">Back to Buckets</a>
 </div>
+
+<%= render(partial: "shared/completed_goals_modal") %>
