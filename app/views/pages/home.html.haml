@@ -7,7 +7,7 @@
   %hr
     - if user_signed_in?
       %h3
-        Welcome, #{current_user.username}!
+        Welcome, #{current_user.username.capitalize}!
         = succeed "What's" do
           %br/
         on your Bucket List today?
