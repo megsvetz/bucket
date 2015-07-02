@@ -26,16 +26,22 @@
         .col-sm-4
           %h2.text-center= link_to('SIGN UP NOW!', new_user_registration_path)
           .text-center= image_tag "bucket.png", width: "45%", height:"auto"
-      %hr
-        %br/
-    %br/
-    %br/
+  .row
+  .container
     .row
-      - @goals.each do |goal|
-        - if goal.category.private == false
-          .col-sm-4.text-center.inline-block.home-container
-            - if goal.goal_pic.present?
-              = image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail")
-            %br/
-            %h2= link_to(goal.title, category_goals_path(goal.category_id))
-            %h3= link_to(goal.category.user.username, user_path(goal.user_id))
+      .col-lg-12.text-center
+        %br
+        - @goals.each do |goal|
+          - if goal.category.private == false
+            .col-sm-4.text-center.inline-block.home-container
+              - if goal.goal_pic.present?
+                = image_tag(goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail")
+              %br/
+              %h2= link_to(goal.title, category_goals_path(goal.category_id))
+              - if goal.country_code.present? && goal.state_code.present?
+                %h3 
+                  = goal.state_code 
+                  ,
+                  = goal.country_code
+              %h3= link_to(goal.category.user.username.capitalize, user_path(goal.user_id))
+      = will_paginate @goals, :class => "apple_pagination"
