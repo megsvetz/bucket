@@ -2,11 +2,11 @@
   .row
     .col-lg-11
       %h1.text-center= image_tag "logo_with_slogan.png", width: "80%", height:"auto", justify: "center" 
-      %br
 .row
   .container
     .row
       .col-lg-12.text-center
+        %br
         - @categories.each do |category|
           - if category.private == false
             .col-lg-4.text-center.inspiration_height
@@ -28,4 +28,4 @@
           / col-sm-4
         / categories
       / row
-      = will_paginate @categories
+      = will_paginate @categories, :class => "apple_pagination"

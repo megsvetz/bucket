@@ -13,6 +13,17 @@
       Title: #{f.text_field :title, class: "form-control", :placeholder => "Enter Name of Goal", :style => "width:100%;"}
       %br
         %br
+          .field
+            = f.label :country_code 
+            %br 
+            = f.country_select :country_code, {priority: %w(US CA), prompt: 'Please select a country'}
+            %br
+            %br 
+          .field
+            = f.label :state_code
+            %br
+            = render partial: 'shared/subregion_select', locals: {parent_region: f.object.country_code}
+
           %h4
             Upload Photo: #{f.file_field :goal_pic, :style => "display:inline-block"}
           %br

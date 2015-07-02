@@ -484,7 +484,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/Stephanie/Projects/dev/bucket/config/initializers/session_store.rb": [
+=======
+      "/Users/megsvetz/megsvetz/coding/sites/bucket/config/initializers/session_store.rb": [
+>>>>>>> 29684686f489402540b944901a46841d1488cddd
         null,
         null,
         1
@@ -523,24 +527,34 @@
         null,
         1,
         1,
+<<<<<<< HEAD
         null,
         null,
         null,
         null,
+=======
+        1,
+>>>>>>> 29684686f489402540b944901a46841d1488cddd
         1,
         null,
         1,
         1,
         null,
+        1,
+        1,
         null,
         1,
         null
       ],
+<<<<<<< HEAD
       "/Users/Stephanie/Projects/dev/bucket/app/models/form_user.rb": [
         1,
         1,
         null,
         1,
+=======
+      "/Users/megsvetz/megsvetz/coding/sites/bucket/app/models/form_user.rb": [
+>>>>>>> 29684686f489402540b944901a46841d1488cddd
         1,
         1,
         null,
@@ -549,6 +563,13 @@
         1,
         null,
         1,
+<<<<<<< HEAD
+=======
+        1,
+        1,
+        null,
+        1,
+>>>>>>> 29684686f489402540b944901a46841d1488cddd
         0,
         0,
         null,
@@ -616,6 +637,7 @@
         null,
         null,
         null,
+<<<<<<< HEAD
         null
       ],
       "/Users/Stephanie/Projects/dev/bucket/app/helpers/application_helper.rb": [
@@ -624,6 +646,8 @@
       ],
       "/Users/Stephanie/Projects/dev/bucket/app/helpers/categories_helper.rb": [
         1,
+=======
+>>>>>>> 29684686f489402540b944901a46841d1488cddd
         null
       ],
       "/Users/Stephanie/Projects/dev/bucket/app/helpers/goals_helper.rb": [
@@ -763,8 +787,42 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/Users/Stephanie/Projects/dev/bucket/app/models/goal.rb": [
         1,
+=======
+      "/Users/megsvetz/megsvetz/coding/sites/bucket/spec/models/goal_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/megsvetz/megsvetz/coding/sites/bucket/app/models/goal.rb": [
+>>>>>>> 29684686f489402540b944901a46841d1488cddd
         1,
         1,
         1,
@@ -795,6 +853,35 @@
         1,
         null,
         1,
+        2,
+        null,
+        null
+      ],
+      "/Users/megsvetz/megsvetz/coding/sites/bucket/spec/models/identity_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/megsvetz/megsvetz/coding/sites/bucket/app/models/identity.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
         0,
         0,
         0,
@@ -825,8 +912,28 @@
         null,
         null,
         null
+      ],
+      "/Users/megsvetz/megsvetz/coding/sites/bucket/spec/models/user_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        2,
+        2,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1435865345
+=======
+    "timestamp": 1435865423
+>>>>>>> 29684686f489402540b944901a46841d1488cddd
   }
 }

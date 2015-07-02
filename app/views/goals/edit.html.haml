@@ -10,9 +10,26 @@
       Edit this Bucket Item
       %h2
         = form_for @goal, url: category_goal_path, :html => { :multipart => true }  do |f|
+          - if @goal.goal_pic.present?
+            = image_tag(@goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-thumbnail img-rounded")
+            %br/
+          - else
+            %img.img-circle.img-responsive.img-center.img-thumbnail.img-rounded{:alt => "", :src => "http://placehold.it/200x200"}
+          %br/
+          %br/
           %h3
             Title: #{f.text_field :title, class: "form-control", :placeholder => "Enter Name of Goal", :style => "width:100%;"}
           %br/
+          .field
+            = f.label :country_code 
+            %br 
+            = f.country_select :country_code, {priority: %w(US CA), prompt: 'Please select a country'}
+            %br
+            %br 
+          .field
+            = f.label :state_code
+            %br
+            = render partial: 'shared/subregion_select', locals: {parent_region: f.object.country_code}
           %br/
           %h4 Upload Photo:
           %h4= f.file_field :goal_pic, :style => "display:inline-block"
