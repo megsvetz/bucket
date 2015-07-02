@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701215850) do
+ActiveRecord::Schema.define(version: 20150702180904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20150701215850) do
     t.string   "goal_pic_content_type"
     t.integer  "goal_pic_file_size"
     t.datetime "goal_pic_updated_at"
+    t.string   "country_code"
+    t.string   "state_code"
   end
 
   create_table "identities", force: :cascade do |t|

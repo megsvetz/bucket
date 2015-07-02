@@ -1,9 +1,13 @@
+%a.btn.btn-info.pull-left{:href => root_path, :style => "display:inline-block"} Back to Buckets
+%br
+
 .text-center
   %br/
   - if @category.cat_pic.present?
     = image_tag(@category.cat_pic.url(:medium), :class => "img-circle img-responsive img-center img-rounded img-thumbnail")
     %br/
   %h1= @category.name
+  %h4= link_to(@category.user.username.capitalize, user_path(@category.user_id))
   - if current_user.id == @category.user_id
     %div
       %a.btn.btn-success{:href => new_category_goal_path, :s => "", :style => "display:inline-block"}
@@ -13,18 +17,13 @@
     / <a href="<haml:loud> categories_path(@category.id) </haml:loud>" class="btn btn-danger" data-method="delete"><span class="glyphicon glyphicon-trash"></span></a>
   %hr/
   - @goals.each do |goal|
-    %p{:style => "font-size:2em"}
-      - if current_user.id == goal.user_id
-        
-      - else
-        - if goal.completed == true
-          %h4
-            %span.glyphicon.glyphicon-ok
-      = link_to(goal.title, category_goal_path(@category.id, goal.id))
-
+    - if goal.completed == true
+      %h4 
+        %span.glyphicon.glyphicon-ok 
+        = link_to(goal.title, category_goal_path(@category.id, goal.id))
+    - else
+      %h4
+        = link_to(goal.title, category_goal_path(@category.id, goal.id))
   %br/
-  %h4= link_to(@category.user.username, user_path(@category.user_id))
-
   %br/
-  %a.btn.backButton.pull-left{:href => root_path, :style => "display:inline-block"} Back to Buckets
 
