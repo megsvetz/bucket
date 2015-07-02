@@ -10,7 +10,7 @@
           = image_tag(@goal.goal_pic.url(:medium), :class => "img-circle img-responsive img-center img-thumbnail img-rounded")
           %br/
         - else
-          %img.img-circle.img-responsive.img-center{:alt => "", :src => "http://placehold.it/200x200"}
+          %img.img-circle.img-responsive.img-center.img-thumbnail.img-rounded{:alt => "", :src => "http://placehold.it/200x200"}
             %br/
         %br/
         - if current_user.id == @goal.user_id
@@ -37,8 +37,9 @@
 %br
 %br
 %br
-
-%div.text-center.container{:style => "width: 800px;"}
-  #map{:style => "width: 800px; height: 400px;"}
+- unless @location.empty?
+  - location = @location.first.coordinates
+  %div.text-center.container{:style => "width: 800px;"}
+    #map{:style => "width: 800px; height: 400px;", data: {lat: location.first, long: location.last}}
 
 = render(partial: "shared/completed_goals_modal")

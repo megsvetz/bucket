@@ -41,6 +41,10 @@ gem "haml-rails", "~> 0.9"
 # gem 'bcrypt', '~> 3.1.7'
 # Gem for google maps
 gem 'gmaps4rails'
+# provides lat and long for map
+gem 'geocoder'
+# this provides a drop down of countrys/states/cities
+gem 'carmen-rails', '~> 1.0.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

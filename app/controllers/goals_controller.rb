@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   before_action :find_goal, only: [:edit, :update, :show, :destroy]
-  before_action :find_category, except: :completed
+  before_action :find_category, except: [:completed, :subregion]
   before_action :authenticate_user! 
   skip_before_action :verify_authenticity_token, only: :completed
  
@@ -9,6 +9,8 @@ class GoalsController < ApplicationController
   end
 
   def show
+    state_code = @goal.state_code if @goal.state_code 
+    @location = Geocoder.search(state_code)
   end
 
   def new
@@ -57,9 +59,13 @@ class GoalsController < ApplicationController
     end
   end
 
+  def subregion
+    render partial: 'shared/subregion_select'
+  end
+
 private
   def goal_params
-    params.require(:goal).permit(:title, :completed, :category_id, :goal_pic, :user_id)
+    params.require(:goal).permit(:title, :completed, :category_id, :goal_pic, :user_id, :state_code, :country_code)
   end
 
   def find_goal

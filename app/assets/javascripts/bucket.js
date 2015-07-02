@@ -51,5 +51,16 @@ $(document).ready(function(){
       }
     });
   }
+  $('select#goal_country_code').change(function(event) {
+    var country_code, select_wrapper, url;
+    select_wrapper = $('#goal_state_code_wrapper');
+    $('select', select_wrapper).attr('disabled', true);
+    country_code = $(this).val();
+    url = "/goal/subregion_options?parent_region=" + country_code;
+    console.log(country_code)
+    console.log(url)
+    console.log(select_wrapper)
+    return select_wrapper.load(url);
+  });
 });
 
