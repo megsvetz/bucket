@@ -786,11 +786,6 @@
         2,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null
       ],
       "/Users/Stephanie/Projects/dev/bucket/app/models/identity.rb": [
@@ -832,6 +827,6 @@
         null
       ]
     },
-    "timestamp": 1435862672
+    "timestamp": 1435865345
   }
 }

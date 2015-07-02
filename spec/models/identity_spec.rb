@@ -6,10 +6,5 @@ RSpec.describe Identity, type: :model do
     it { should validate_presence_of ( :uid ) }
     it { should validate_uniqueness_of ( :uid ) }
   end
-  #
-  # context "class methods" do
-  #   describe ".find_for_twitter_oauth" do
-  #   end
-  # end
 
 end
