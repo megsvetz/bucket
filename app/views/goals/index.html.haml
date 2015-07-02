@@ -15,19 +15,16 @@
   - @goals.each do |goal|
     %p{:style => "font-size:2em"}
       - if current_user.id == goal.user_id
-        = render(partial: 'shared/completed_check', locals: {goal: goal})
+        
       - else
         - if goal.completed == true
           %h4
             %span.glyphicon.glyphicon-ok
       = link_to(goal.title, category_goal_path(@category.id, goal.id))
-      - if current_user.id == goal.user_id
-        \&nbsp;&nbsp;
-        %a.btn.btn-info{:href => edit_category_goal_path(@category.id, goal.id)}
-          %span.glyphicon.glyphicon-pencil
-        %a.btn.btn-danger{"data-method" => "delete", :href => category_goal_path(@category, goal)}
-          %span.glyphicon.glyphicon-trash
+
   %br/
+  %h4= link_to(@category.user.username, user_path(@category.user_id))
+
   %br/
-  %a.btn.btn-info.pull-left{:href => root_path, :style => "display:inline-block"} Back to Buckets
-= render(partial: "shared/completed_goals_modal")
+  %a.btn.backButton.pull-left{:href => root_path, :style => "display:inline-block"} Back to Buckets
+

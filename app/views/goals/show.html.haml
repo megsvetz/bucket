@@ -32,3 +32,5 @@
         - if current_user.id == @goal.user_id
           %a.btn.btn-success.pull-right{:href => new_category_goal_path, :style => "display:inline-block"} Add New Goal
         %a.btn.btn-info.pull-left{:href => categories_path, :style => "display:inline-block"} Back to Buckets
+
+= render(partial: "shared/completed_goals_modal")

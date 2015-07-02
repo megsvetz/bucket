@@ -10,7 +10,7 @@
         Welcome, #{current_user.username}!
         = succeed "What's" do
           %br/
-        on your Bucket today?
+        on your Bucket List today?
     - else
       .row
         .col-sm-8
@@ -39,4 +39,3 @@
             %br/
             %h2= link_to(goal.title, category_goals_path(goal.category_id))
             %h3= link_to(goal.category.user.username, user_path(goal.user_id))
-            
