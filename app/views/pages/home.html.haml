@@ -5,6 +5,7 @@
         %h1.text-center= image_tag "logo_with_slogan.png", width: "80%", height:"auto", justify: "center"
 .container
   %hr
+  - binding.pry
     - if user_signed_in?
       %h3
         Welcome, #{current_user.username.capitalize}!
