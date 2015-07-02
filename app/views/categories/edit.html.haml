@@ -1,5 +1,5 @@
 
-%a.btn.backButton{:href => "previous.html", :onClick => "history.back();return false;", :style => "float:left"} Back to Bucket
+%a.btn.btn-info{:href => "previous.html", :onClick => "history.back();return false;", :style => "float:left"} Back to Bucket
 %br/
 %br/
 %br/
@@ -23,5 +23,6 @@
                 %h4 Upload Photo:
                 = f.file_field :cat_pic, :style => "display:inline-block"
                 %br
+                %br
                   = f.hidden_field :user_id, value: current_user.id
-                  = f.submit("Edit List", class: "btn backButton")
+                  = f.submit("Save Edit", class: "btn btn-success")

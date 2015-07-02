@@ -41,6 +41,8 @@ gem 'will_paginate', '~> 3.0.6'
 gem "haml-rails", "~> 0.9"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+# Gem for google maps
+gem 'gmaps4rails'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

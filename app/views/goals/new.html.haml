@@ -3,7 +3,7 @@
   %h3 New Bucket List Item
   %hr/
   %row
-    %a.btn.btn-default{:href => "previous.html", :onClick => "history.back();return false;", :style => "float:left"} Back to Buckets
+    %a.btn.btn-info.btn-default{:href => "previous.html", :onClick => "history.back();return false;", :style => "float:left"} Back to Buckets
   %br/
   %br/
   %br/
@@ -19,7 +19,7 @@
             = f.hidden_field :user_id, value: current_user.id
             = f.hidden_field :category_id, value: @category.id
             %br
-              = f.submit "Create Goal", class: "btn myButton"
+              = f.submit "Create Goal", class: "btn btn-success"
               %br
                 %br
 

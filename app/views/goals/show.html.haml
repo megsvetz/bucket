@@ -1,3 +1,5 @@
+%a.btn.btn-info.pull-left{:href => root_path, :style => "display:inline-block"} Back to Buckets
+
 .text-center
   .row
     .col-lg-12
@@ -20,7 +22,8 @@
             %span.glyphicon.glyphicon-ok
             = @goal.title
         - else
-          %h4= @goal.title
+          %h4 
+            = @goal.title
         - if current_user.id == @goal.user_id
           \&nbsp;&nbsp;
           %a.btn.btn-info{:href => edit_category_goal_path(@category.id, @goal.id)}
@@ -31,6 +34,11 @@
         %br/
         - if current_user.id == @goal.user_id
           %a.btn.btn-success.pull-right{:href => new_category_goal_path, :style => "display:inline-block"} Add New Goal
-        %a.btn.btn-info.pull-left{:href => categories_path, :style => "display:inline-block"} Back to Buckets
+%br
+%br
+%br
+
+%div.text-center.container{:style => "width: 800px;"}
+  #map{:style => "width: 800px; height: 400px;"}
 
 = render(partial: "shared/completed_goals_modal")
