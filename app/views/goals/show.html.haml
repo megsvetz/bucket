@@ -39,7 +39,8 @@
 %br
 - unless @location.empty?
   - location = @location.first.coordinates
-  %div.text-center.container{:style => "width: 800px;"}
+  %div.text-center.container{:style => "width: 800px;" }
     #map{:style => "width: 800px; height: 400px;", data: {lat: location.first, long: location.last}}
+   
 
 = render(partial: "shared/completed_goals_modal")
