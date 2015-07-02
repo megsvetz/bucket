@@ -2,11 +2,12 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable,
          :omniauth_providers => [:twitter]
 
   has_many :categories
   has_many :goals
+  has_many :identities
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
@@ -28,6 +29,14 @@ class User < ActiveRecord::Base
           )
       end
     end
+  end
+
+   def twitter
+    identities.where( :provider => "twitter" ).first
+  end
+
+  def twitter_client
+    @twitter_client ||= Twitter.client( access_token: twitter.accesstoken )
   end
 
   # def self.new_with_session(params, session)

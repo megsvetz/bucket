@@ -1,5 +1,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Montserrat:700);
+
+nav{
+  padding:5px 0;
+}
 
 .structure {
   height: 400px;
@@ -64,9 +69,7 @@ img {
 }
 
 .nav {
-  padding-right: 5%;
-  padding-top: 0.9%;
-  font-size: 1.7em;
+
 }
 
 .myButton {

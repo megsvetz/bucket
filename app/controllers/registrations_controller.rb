@@ -1,14 +1,17 @@
 class RegistrationsController < Devise::RegistrationsController
-
-  # def create
-  #   @user = User.find_or_create_from_auth_hash(auth_hash)
-  #   self.current_user = @user
-  #   redirect_to '/'
-  # end
-
-  protected
-
-  def auth_hash
-    request.env['omniauth.auth']
+  def update_resource(resource, params)
+    if resource.encrypted_password.blank? # || params[:password].blank?
+      resource.email = params[:email] if params[:email]
+      if !params[:password].blank? && params[:password] == params[:password_confirmation]
+        logger.info "Updating password"
+        resource.password = params[:password]
+        resource.save
+      end
+      if resource.valid?
+        resource.update_without_password(params)
+      end
+    else
+      resource.update_with_password(params)
+    end
   end
 end
