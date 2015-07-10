@@ -15,7 +15,6 @@ class GoalsController < ApplicationController
       marker.lat goal.latitude
       marker.lng goal.longitude
     end
-end
   end
 
   def new
