@@ -1,4 +1,4 @@
-class CreateCategories < ActiveRecord::Migration
+egerclass CreateCategories < ActiveRecord::Migration
   def change
     create_table :categories do |t|
       t.string :name

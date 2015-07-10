@@ -11,6 +11,11 @@ class GoalsController < ApplicationController
   def show
     state_code = @goal.state_code if @goal.state_code 
     @location = Geocoder.search(state_code)
+    @hash = Gmaps4rails.build_markers(@users) do |goal, marker|
+      marker.lat goal.latitude
+      marker.lng goal.longitude
+    end
+end
   end
 
   def new
