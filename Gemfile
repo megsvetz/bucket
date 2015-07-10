@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.1'
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'sass-rails', '>= 3.2'
@@ -48,6 +49,11 @@ gem 'carmen-rails', '~> 1.0.0'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+group :production do
+  gem 'rails_12factor'
+  gem 'puma'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
